@@ -9,8 +9,9 @@ import json
 class ItemList(Resource):
 
     def get(self):
-        all_items = Product.query.all()
-        item_list = []
+        return {'items': list(map(lambda x: x.json(), Product.query.all()))}
+        # all_items = Product.query.all()
+        # item_list = []
 
         # for item, item1, item2, item3 in all_items:
         #     return item.json()

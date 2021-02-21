@@ -21,10 +21,6 @@ class Product(db.Model):
         return {"model": self.model, "price": self.price, "quantity": self.quantity}
 
     @classmethod
-    def show_all(cls):
-        return cls.query.all()
-
-    @classmethod
     def find_by_name(cls, model):
         #item = Product.query.filter_by(name=name).first()
         return cls.query.filter_by(model=model).first()
