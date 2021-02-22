@@ -6,7 +6,17 @@ from models.item import Product
 class ItemList(Resource):
 
     def get(self):
-        return {'All our models': list(map(lambda x: x.json(), Product.query.all()))}
+        if Product.shaw_all_models():
+            return {'All our models': Product.shaw_all_models()}
+        else:
+            return {"Message": "Sorry, we don't have products yet."}
+
+    @jwt_required()
+    def delete(self):
+        all_models = Product.query.all()
+        for model in all_models:
+            model.delete_from_db()
+        return {"Message": "All data was removed."}
 
 
 class Item(Resource):

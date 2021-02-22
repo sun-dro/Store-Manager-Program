@@ -18,6 +18,10 @@ class Product(db.Model):
         return {"model": self.model, "price": self.price, "quantity": self.quantity}
 
     @classmethod
+    def shaw_all_models(cls):
+        return list(map(lambda x: x.json(), Product.query.all()))
+
+    @classmethod
     def find_by_name(cls, model):
         return cls.query.filter_by(model=model).first()
 
