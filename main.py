@@ -15,6 +15,7 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 api = Api(app)
 jwt = JWT(app, authenticate, identity)
 
+
 @app.route('/')
 def home():
     return redirect('https://github.com/sun-dro/unilab-rest-api/tree/main'), 302
