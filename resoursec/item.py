@@ -83,13 +83,15 @@ class Item(Resource):
             #ver anaxlebs aq
             item.price = data["price"]
             item.quantity = data["quantity"]
-            return {'message': "Item was updated successfully."}
+            message = "Item was updated successfully."
+
         else:
+            message = "New item was added successfully."
             item = Product(**data)
 
         item.save_to_db()
         #return item.json()
-        return {'message': "New item was added successfully."}
+        return {'message': message}
 
         # if not item:
         #     Product.insert(data)
