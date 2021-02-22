@@ -2,8 +2,6 @@ from flask_restful import Resource, Api, reqparse
 from flask_jwt import JWT, jwt_required, current_identity
 import sqlite3
 from models.item import Product
-from db import db
-import json
 
 
 class ItemList(Resource):
@@ -30,16 +28,16 @@ class ItemList(Resource):
         # connec.close()
         # return row
 
-    @jwt_required()
-    def delete(self):
-        # db.session.delete()
-        # db.session.commit()
-        # connec = sqlite3.connect('my-data.db')
-        # curs = connec.cursor()
-        # curs.execute("DELETE from items")
-        # connec.commit()
-        # connec.close()
-        return {"message": "Deleting was successful"}
+    # @jwt_required()
+    # def delete(self):
+    #     # db.session.delete()
+    #     # db.session.commit()
+    #     # connec = sqlite3.connect('my-data.db')
+    #     # curs = connec.cursor()
+    #     # curs.execute("DELETE from items")
+    #     # connec.commit()
+    #     # connec.close()
+    #     return {"message": "Deleting was successful"}
 
 
 class Item(Resource):
