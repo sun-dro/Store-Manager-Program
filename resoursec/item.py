@@ -6,7 +6,7 @@ from models.item import Product
 class ItemList(Resource):
 
     def get(self):
-        return {'items': list(map(lambda x: x.json(), Product.query.all()))}
+        return {'All our models': list(map(lambda x: x.json(), Product.query.all()))}
 
 
 class Item(Resource):
